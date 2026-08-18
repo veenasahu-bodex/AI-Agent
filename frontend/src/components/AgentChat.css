@@ -1,0 +1,681 @@
+/* =====================================================
+   AGENT CHAT
+===================================================== */
+
+.agent-chat {
+  width: 100%;
+  max-width: 1050px;
+  height: 600px;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  border: 1px solid #e2e3ea;
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 12px 35px rgba(30, 34, 50, 0.07);
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.agent-chat-header {
+  min-height: 72px;
+
+  padding: 13px 18px;
+
+  display: flex;
+  align-items: center;
+
+  border-bottom: 1px solid #ececf1;
+
+  background: #ffffff;
+}
+
+.agent-avatar {
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: #635bff;
+  color: #ffffff;
+
+  box-shadow:
+    0 5px 12px rgba(99, 91, 255, 0.2);
+}
+
+.agent-avatar svg {
+  font-size: 18px;
+}
+
+.agent-chat-header > div:nth-child(2) {
+  margin-left: 11px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.agent-chat-header h3 {
+  margin: 0;
+
+  color: #252832;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.agent-chat-header span {
+  margin-top: 3px;
+
+  color: #9297a2;
+
+  font-size: 9px;
+}
+
+.agent-online {
+  margin-left: auto;
+
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center;
+
+  gap: 6px;
+
+  padding: 6px 9px;
+
+  border: 1px solid #e3f0e8;
+  border-radius: 20px;
+
+  background: #f5fbf7;
+
+  color: #4e9669 !important;
+
+  font-size: 8px !important;
+}
+
+.agent-online span {
+  width: 6px;
+  height: 6px;
+
+  margin: 0;
+
+  border-radius: 50%;
+
+  background: #42a66a;
+
+  box-shadow: 0 0 0 3px rgba(66, 166, 106, 0.1);
+}
+
+/* =====================================================
+   MESSAGES AREA
+===================================================== */
+
+.agent-messages {
+  flex: 1;
+
+  padding: 24px;
+
+  overflow-y: auto;
+
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(99, 91, 255, 0.035),
+      transparent 30%
+    ),
+    #f8f9fc;
+
+  scrollbar-width: thin;
+  scrollbar-color: #d4d5dc transparent;
+}
+
+.agent-messages::-webkit-scrollbar {
+  width: 5px;
+}
+
+.agent-messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.agent-messages::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #d4d5dc;
+}
+
+/* =====================================================
+   MESSAGE
+===================================================== */
+
+.agent-message {
+  width: 100%;
+
+  margin-bottom: 22px;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 10px;
+}
+
+.message-avatar {
+  width: 32px;
+  height: 32px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  font-size: 13px;
+}
+
+.bot-message .message-avatar {
+  background: #635bff;
+  color: #ffffff;
+}
+
+.user-message {
+  flex-direction: row-reverse;
+}
+
+.user-message .message-avatar {
+  background: #252832;
+  color: #ffffff;
+}
+
+/* =====================================================
+   MESSAGE CONTENT
+===================================================== */
+
+.message-content {
+  max-width: 78%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.user-message .message-content {
+  align-items: flex-end;
+}
+
+.message-content strong {
+  margin-bottom: 5px;
+
+  color: #6f7480;
+
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.user-message .message-content strong {
+  color: #858a95;
+}
+
+.message-content > p {
+  margin: 0;
+
+  padding: 11px 14px;
+
+  border-radius: 5px 13px 13px 13px;
+
+  background: #ffffff;
+  color: #444955;
+
+  border: 1px solid #e6e7ed;
+
+  font-size: 11px;
+  line-height: 1.65;
+
+  box-shadow:
+    0 2px 6px rgba(30, 34, 50, 0.025);
+}
+
+.user-message .message-content > p {
+  border: none;
+
+  border-radius: 13px 5px 13px 13px;
+
+  background: #635bff;
+  color: #ffffff;
+
+  box-shadow:
+    0 5px 12px rgba(99, 91, 255, 0.14);
+}
+
+/* =====================================================
+   JOB RESULTS
+===================================================== */
+
+.agent-job-results {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+  margin-top: 12px;
+}
+
+.agent-job-card {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+
+  padding: 14px;
+
+  background: #ffffff;
+
+  border: 1px solid #e4e6ef;
+  border-radius: 12px;
+
+  transition: all 0.2s ease;
+}
+
+.agent-job-card:hover {
+  transform: translateY(-2px);
+
+  border-color: #cfcaff;
+
+  box-shadow: 0 6px 18px rgba(70, 65, 130, 0.08);
+}
+
+.agent-job-card h4 {
+  margin: 0 0 7px;
+
+  font-size: 14px;
+  line-height: 1.4;
+
+  color: #171827;
+}
+
+.agent-job-card > div:first-child span {
+  display: block;
+
+  margin-bottom: 10px;
+
+  font-size: 11px;
+
+  color: #777b8d;
+}
+
+.agent-job-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+
+  margin-bottom: 10px;
+}
+
+.agent-job-info small {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 5px 7px;
+
+  border-radius: 6px;
+
+  background: #f5f6fa;
+
+  color: #707489;
+
+  font-size: 10px;
+}
+
+.agent-job-card a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 7px 11px;
+
+  border-radius: 7px;
+
+  background: #635bff;
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  transition: 0.2s ease;
+}
+
+.agent-job-card a:hover {
+  background: #5148e8;
+}
+
+/* =====================================================
+   JOB INFORMATION
+===================================================== */
+
+.agent-job-info {
+  margin-top: 9px;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 7px;
+}
+
+.agent-job-info small {
+  padding: 5px 7px;
+
+  border-radius: 6px;
+
+  background: #f5f5f8;
+  color: #777d88;
+
+  font-size: 8px;
+}
+
+/* =====================================================
+   VIEW JOB BUTTON
+===================================================== */
+
+.agent-job-card a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 10px;
+
+  padding: 7px 11px;
+
+  border-radius: 7px;
+
+  background: #f0efff;
+  color: #635bff;
+
+  text-decoration: none;
+
+  font-size: 8px;
+  font-weight: 600;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.agent-job-card a:hover {
+  background: #635bff;
+  color: #ffffff;
+}
+
+/* =====================================================
+   THINKING / LOADING
+===================================================== */
+
+.agent-thinking {
+  padding: 10px 13px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  border: 1px solid #e6e7ed;
+  border-radius: 5px 13px 13px 13px;
+
+  background: #ffffff;
+  color: #777d88;
+
+  font-size: 10px;
+}
+
+.agent-thinking svg {
+  color: #635bff;
+
+  font-size: 14px;
+
+  animation: agent-spin 1s linear infinite;
+}
+
+@keyframes agent-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =====================================================
+   INPUT AREA
+===================================================== */
+
+.agent-input {
+  min-height: 72px;
+
+  padding: 12px 15px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  border-top: 1px solid #e7e8ed;
+
+  background: #ffffff;
+}
+
+.agent-input input {
+  flex: 1;
+
+  height: 46px;
+
+  padding: 0 14px;
+
+  border: 1px solid #dedfe6;
+  border-radius: 11px;
+
+  outline: none;
+
+  background: #f8f9fb;
+  color: #30343e;
+
+  font-family: inherit;
+
+  font-size: 11px;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.agent-input input::placeholder {
+  color: #a1a5ae;
+}
+
+.agent-input input:focus {
+  border-color: #aaa6ff;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 0 3px rgba(99, 91, 255, 0.06);
+}
+
+.agent-input button {
+  width: 46px;
+  height: 46px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 11px;
+
+  background: #635bff;
+  color: #ffffff;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 5px 12px rgba(99, 91, 255, 0.17);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.agent-input button svg {
+  font-size: 15px;
+}
+
+.agent-input button:hover:not(:disabled) {
+  background: #554de8;
+
+  transform: translateY(-1px);
+}
+
+.agent-input button:disabled {
+  background: #c7c8d1;
+
+  cursor: not-allowed;
+
+  box-shadow: none;
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 800px) {
+  .agent-chat {
+    height: 560px;
+  }
+
+  .agent-messages {
+    padding: 20px;
+  }
+
+  .message-content {
+    max-width: 82%;
+  }
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+  .agent-chat {
+    height: 580px;
+
+    border-radius: 14px;
+  }
+
+  .agent-chat-header {
+    min-height: 65px;
+
+    padding: 11px 13px;
+  }
+
+  .agent-avatar {
+    width: 37px;
+    height: 37px;
+  }
+
+  .agent-chat-header h3 {
+    font-size: 13px;
+  }
+
+  .agent-online {
+    padding: 5px 7px;
+  }
+
+  .agent-messages {
+    padding: 17px 12px;
+  }
+
+  .message-avatar {
+    width: 29px;
+    height: 29px;
+
+    border-radius: 8px;
+  }
+
+  .message-content {
+    max-width: calc(100% - 40px);
+  }
+
+  .message-content > p {
+    padding: 9px 11px;
+
+    font-size: 10px;
+  }
+
+  .agent-job-card {
+    padding: 11px;
+  }
+
+  .agent-job-card h4 {
+    font-size: 11px;
+  }
+
+  .agent-input {
+    min-height: 65px;
+
+    padding: 9px;
+  }
+
+  .agent-input input {
+    height: 43px;
+
+    font-size: 10px;
+  }
+
+  .agent-input button {
+    width: 43px;
+    height: 43px;
+  }
+}
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 400px) {
+  .agent-online {
+    display: none !important;
+  }
+
+  .agent-chat-header > div:nth-child(2) {
+    margin-left: 8px;
+  }
+
+  .agent-messages {
+    padding: 14px 9px;
+  }
+
+  .message-content {
+    max-width: 80%;
+  }
+
+  .agent-job-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 700px) {
+  .agent-job-results {
+    grid-template-columns: 1fr;
+  }
+}
