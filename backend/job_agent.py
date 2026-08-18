@@ -666,6 +666,13 @@ def search_jobs(
             "After duplicate removal:",
             len(cleaned_jobs)
         )
+        cleaned_jobs = cleaned_jobs[:20]
+
+        print(
+        "Final jobs returned:",
+          len(cleaned_jobs)
+        )
+
 
         print("=" * 60)
 
