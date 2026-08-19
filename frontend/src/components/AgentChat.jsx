@@ -41,7 +41,7 @@ function AgentChat() {
 
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/agent",
+        "https://ai-agent-ylzp.onrender.com/api/agent",
         {
           message: text,
           location: "India",
